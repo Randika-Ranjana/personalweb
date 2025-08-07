@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Randika | Web Developer & Freelancer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white relative overflow-x-hidden font-inter">
+
+  <!-- 🚀 Loading Screen -->
+  <div id="loading-screen" class="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
+    <div class="text-center">
+      <div class="loading-animation mb-8">
+        <div class="glitch-text" data-text="RANDIKA">RANDIKA</div>
+        <div class="text-cyan-400 text-sm font-mono mt-2 typing-animation">Initializing portfolio...</div>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <div class="binary-rain"></div>
+    </div>
+  </div>
+
+  <!-- 📊 Scroll Progress Bar -->
+  <div class="scroll-progress fixed top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 z-50 transition-all duration-300"></div>
+
+  <!-- 🔘 Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <!-- 🔝 Back to Top Button -->
+  <button id="backToTopBtn" class="hidden fixed bottom-6 right-6 z-50 bg-gradient-to-r from-cyan-500 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-110">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+
+  <!-- 🌌 Particle Background -->
+  <div id="particles-container" class="fixed inset-0 z-0 pointer-events-none"></div>
+
+  <!-- 🎈 Floating Geometric Shapes -->
+  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+  </div>
+
+  <!-- 🌐 Navbar -->
+  <header class="w-full fixed top-0 left-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded flex items-center justify-center">
+          <span class="text-black font-bold text-sm">R</span>
+        </div>
+        <h1 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Randika.dev</h1>
+      </div>
+      <nav class="flex items-center space-x-6">
+        <a href="#about" class="nav-link relative">About</a>
+        <a href="#skills" class="nav-link relative">Skills</a>
+        <a href="#projects" class="nav-link relative">Projects</a>
+        <a href="#contact" class="nav-link relative">Contact</a>
+        <button id="themeToggle" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+          <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🖥️ Hero Section -->
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 relative">
+    <div class="hero-grid absolute inset-0 opacity-10"></div>
+    <div class="relative z-10">
+      <div class="mb-6" data-aos="fade-up">
+        <span class="text-cyan-400 font-mono text-sm">&lt;developer&gt;</span>
+      </div>
+      <h1 class="text-5xl sm:text-7xl font-bold mb-4 relative" data-aos="fade-up" data-aos-delay="100">
+        Hi, I'm <span class="hero-name bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Randika</span>
+      </h1>
+      <div class="typewriter-container mb-8" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-xl sm:text-2xl text-gray-300">
+          <span id="typewriter" class="font-mono"></span>
+          <span class="cursor-blink">|</span>
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8" data-aos="fade-up" data-aos-delay="400">
+        <a href="#contact" class="cta-button primary">
+          <span>Hire Me</span>
+          <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a href="assets/Randika_CV.pdf" download class="cta-button secondary">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+          <span>Download CV</span>
+        </a>
+      </div>
+      <div class="text-cyan-400 font-mono text-sm" data-aos="fade-up" data-aos-delay="500">
+        &lt;/developer&gt;
+      </div>
+    </div>
+    <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <div class="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-cyan-400 rounded-full mt-2 animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 👨‍💼 About -->
+  <section id="about" class="py-20 px-6 bg-gray-900/50 backdrop-blur-sm" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">About Me</h3>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative" data-aos="fade-right">
+          <div class="profile-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 p-8">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-purple-500/20 rounded-full -translate-y-16 translate-x-16"></div>
+            <div class="relative z-10">
+              <div class="w-32 h-32 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <span class="text-4xl font-bold text-black">R</span>
+              </div>
+              <div class="code-block bg-black/50 rounded-lg p-4 font-mono text-sm">
+                <div class="text-gray-500">// Developer Info</div>
+                <div class="text-cyan-400">const <span class="text-white">developer</span> = {</div>
+                <div class="ml-4 text-purple-400">name: <span class="text-green-400">"Randika"</span>,</div>
+                <div class="ml-4 text-purple-400">role: <span class="text-green-400">"Full Stack Developer"</span>,</div>
+                <div class="ml-4 text-purple-400">status: <span class="text-green-400">"Available for hire"</span></div>
+                <div class="text-cyan-400">};</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <p class="text-lg leading-relaxed text-gray-300 mb-6">
+            I'm a passionate developer with experience building modern websites using cutting-edge technologies. 
+            Currently studying Computer Science, I enjoy freelancing and building tech solutions that make a difference.
+          </p>
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="stat-card">
+              <div class="text-2xl font-bold text-cyan-400">2+</div>
+              <div class="text-sm text-gray-400">Years Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-2xl font-bold text-purple-400">10+</div>
+              <div class="text-sm text-gray-400">Projects Completed</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-2xl font-bold text-pink-400">24/7</div>
+              <div class="text-sm text-gray-400">Available</div>
+            </div>
+            <div class="stat-card">
+              <div class="text-2xl font-bold text-green-400">100%</div>
+              <div class="text-sm text-gray-400">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⚙️ Skills -->
+  <section id="skills" class="py-20 px-6" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6">Skills & Tools</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div class="skill-item">HTML5</div>
+        <div class="skill-item">CSS3 / Tailwind</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">React</div>
+        <div class="skill-item">Node.js</div>
+        <div class="skill-item">MongoDB</div>
+        <div class="skill-item">Git & GitHub</div>
+        <div class="skill-item">Figma</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📁 Projects -->
+  <section id="projects" class="py-20 px-6 bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-8">Projects</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Example Project -->
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md hover:shadow-xl transition">
+          <img src="assets/project1.png" alt="Project 1" class="rounded-md mb-4">
+          <h4 class="text-xl font-semibold mb-2">Project Title</h4>
+          <p class="text-sm mb-3">Short description of the project.</p>
+          <div class="flex justify-between text-sm text-blue-600 dark:text-yellow-400">
+            <a href="#" target="_blank">Live Demo</a>
+            <a href="#" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <!-- Add more projects as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 📞 Contact -->
+  <section id="contact" class="py-20 px-6" data-aos="fade-up">
+    <div class="max-w-xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-4">Get in Touch</h3>
+      <p class="mb-6">Feel free to reach out for freelance work or collaboration!</p>
+      <div class="flex justify-center gap-6 text-2xl">
+        <a href="mailto:you@example.com" class="hover:text-blue-600">📧</a>
+                 <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="hover:text-blue-600">🐙</a>
+         <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="hover:text-blue-600">💼</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔻 Footer -->
+  <footer class="py-6 text-center text-sm bg-gray-200 dark:bg-black dark:text-white">
+    <p>&copy; 2025 Randika. All rights reserved. Made with ❤️</p>
+  </footer>
+
+  <!-- JS Includes -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/loading-screen.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/scroll-progress.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/dark-mode-toggle.js"></script>
+  <script src="js/custom-cursor.js"></script>
+  <script src="js/back-to-top.js"></script>
+</body>
+</html>
